@@ -17,7 +17,7 @@ StreamFlix is losing subscribers. This project aims to answer:
 4. Visual analysis: churn by plan, device, cancellation reason, and viewing hours.
 
 ## 🖼️ Dashboard
-![StreamFlix Churn Dashboard](Captura de pantalla (305))
+![StreamFlix Churn Dashboard] (dashboard.png)
 
 ## 💡 Key Insights
 1. **Overall churn is high:** 44% of subscribers (265 out of 600) canceled their subscription.
