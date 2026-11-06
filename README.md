@@ -34,4 +34,10 @@ StreamFlix is losing subscribers. This project aims to answer:
 4. **Next step:** build a predictive model to identify subscribers at risk of canceling.
 
 ## 🛠️ Tools
-Power BI · DAX · Power Query · Excel
+Power BI · DAX · Power Query · Excel - SQL
+
+# 🗄️ SQL Analysis
+Business questions from the Marketing team answered with SQL ([see queries](sql/streamflix_queries.sql)):
+1. **Churn by province:** Mendoza has the highest churn rate (56.5%), but Buenos Aires loses the most customers (79 cancellations).
+2. **Revenue lost by plan:** Basic accounts for ARS 1.11M of the ARS 2.39M lost monthly. Standard loses almost as much (ARS 924K) with half the cancellations, since each user is worth more.
+3. **At-risk users:** 101 active subscribers watch less than 5 hours per week, a target list for a retention campaign.
