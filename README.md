@@ -41,3 +41,18 @@ Business questions from the Marketing team answered with SQL ([see queries](sql/
 1. **Churn by province:** Mendoza has the highest churn rate (56.5%), but Buenos Aires loses the most customers (79 cancellations).
 2. **Revenue lost by plan:** Basic accounts for ARS 1.11M of the ARS 2.39M lost monthly. Standard loses almost as much (ARS 924K) with half the cancellations, since each user is worth more.
 3. **At-risk users:** 101 active subscribers watch less than 5 hours per week, a target list for a retention campaign.
+
+4. ## Retention Simulator (What-if Analysis)
+
+**Question from the CFO:** If we launch a promo to retain at-risk users, how much revenue could we save?
+
+![Retention Simulator](simulator.png.png)
+
+- **At-risk users:** 101 active subscribers watching less than 5 hours per week.
+- **Revenue at risk:** ARS 971K per month.
+- **How it works:** a what-if parameter lets you choose the promo's retention rate (0–100%) and calculates the revenue saved and users retained.
+- **Example:** if the promo retains 30% of at-risk users, StreamFlix saves ~ARS 291K per month (~30 users).
+
+**Recommendation:** the promo is worth it only if the revenue saved is higher than its cost. I recommend testing it first with a small group (A/B test), measuring the real retention rate, and then using the simulator to decide.
+
+**DAX used:** what-if parameter, `CALCULATE`, `SUMX`, `FILTER`, `RELATED`.
