@@ -33,8 +33,6 @@ StreamFlix is losing subscribers. This project aims to answer:
 3. **Improve the mobile experience:** investigate why mobile users churn more (app performance, content format).
 4. **Next step:** build a predictive model to identify subscribers at risk of canceling.
 
-## 🛠️ Tools
-Power BI · DAX · Power Query · Excel - SQL
 
 # 🗄️ SQL Analysis
 Business questions from the Marketing team answered with SQL ([see queries](sql/streamflix_queries.sql)):
@@ -56,3 +54,21 @@ Business questions from the Marketing team answered with SQL ([see queries](sql/
 **Recommendation:** the promo is worth it only if the revenue saved is higher than its cost. I recommend testing it first with a small group (A/B test), measuring the real retention rate, and then using the simulator to decide.
 
 **DAX used:** what-if parameter, `CALCULATE`, `SUMX`, `FILTER`, `RELATED`.
+
+## Churn Prediction Model (Python)
+
+**Question from Marketing:** Which active users are most likely to cancel, so we can target them first?
+
+- **Model:** Logistic Regression (scikit-learn), trained on 80% of users and tested on the remaining 20%.
+- **Features:** plan, age, gender, device, favorite content, weekly hours, and tenure. `churn_reason` was excluded to avoid data leakage (it only exists for users who already left).
+- **Result:** 69% accuracy vs. a 56% baseline (always predicting "stays").
+- **Output:** a churn probability for each active user, ranked from highest to lowest risk ([at_risk_predictions.csv](at_risk_predictions.csv)).
+
+**Key finding:** the highest-risk active users are mostly on the Basic plan and watch fewer than 5 hours per week. Most of them have been subscribed for over a year, which suggests that tenure alone does not guarantee loyalty.
+
+**Recommendation:** prioritize the retention promo for users with the highest churn probability, instead of using a single rule like "less than 5 hours per week".
+
+📓 Notebook: [streamflix_churn_model.ipynb](streamflix_churn_model.ipynb)
+
+## 🛠️ Tools
+Power BI · DAX · Power Query · Excel - SQL
